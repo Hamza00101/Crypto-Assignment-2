@@ -1,0 +1,15 @@
+import hashlib
+
+target_md5 = "b6d767d2f8ed5d21a44b0e5886680cb9"
+target_sha1 = "12c6fc06c99a462375eeb3f43dfd832b08ca9e17"
+
+for i in range(100):
+    num = f"{i:02d}"  # ensures 00–99 format
+    
+    md5_hash = hashlib.md5(num.encode()).hexdigest()
+    sha1_hash = hashlib.sha1(num.encode()).hexdigest()
+    
+    if md5_hash == target_md5 or sha1_hash == target_sha1:
+        print(f"[+] Match found: {num}")
+        print(f"MD5 : {md5_hash}")
+        print(f"SHA1: {sha1_hash}")
